@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Divi Masternode Rewards Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class"col">
+                <h1>Divi Masternode Rewards Calculator</h1>
+            </div>
+            <div class="col">
+                <p>
+                    <label for="amount">Divi Price (USD)</label>
+                    <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                </p>
+                <div id="slider-range-min"></div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Coins minted per year: <span id="mintedDivi"></span> DIVI</h3>
+        </div>
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Masternode Level</th>
+                        <th scope="col">Number of Nodes</th>
+                        <th scope="col">Reward in USD (yearly)</th>
+                        <th scope="col">Reward in coins (yearly)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Diamond</th>
+                        <td><input type="text" id="diamondNodes" value="7"></td>
+                        <td><span id="diamondRewardInDollars"></span></td>
+                        <td><span id="diamondRewardInDivi"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Platinum</th>
+                        <td><input type="text" id="platinumNodes" value="32"></td>
+                        <td><span id="platinumRewardInDollars"></span></td>
+                        <td><span id="platinumRewardInDivi"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Gold</th>
+                        <td><input type="text" id="goldNodes" value="73"></td>
+                        <td><span id="goldRewardInDollars"></span></td>
+                        <td><span id="goldRewardInDivi"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Silver</th>
+                        <td><input type="text" id="silverNodes" value="164"></td>
+                        <td><span id="silverRewardInDollars"></span></td>
+                        <td><span id="silverRewardInDivi"></span></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Copper</th>
+                        <td><input type="text" id="copperNodes" value="312"></td>
+                        <td><span id="copperRewardInDollars"></span></td>
+                        <td><span id="copperRewardInDivi"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./src/js/app.js"></script>
+</body>
+</html>
