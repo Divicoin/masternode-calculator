@@ -1,7 +1,12 @@
 jQuery(()=> {
     const queryURL = "https://api.coinmarketcap.com/v1/ticker/divi/?convert=USD"
-    const mintedDivi = 6570000;
-    const diviRewardSplit = mintedDivi * 0.45;
+    const seeSaw =
+        {
+            mintedDivi: "#mintedDivi",
+            split: "#seeSawSplit"
+        };
+    
+    let diviRewardSplitSolution;
 
     var nodes = [
         {
@@ -31,6 +36,14 @@ jQuery(()=> {
         }
     ];
 
+    function diviRewardSplit() {
+        diviRewardSplitSolution = $(seeSaw.mintedDivi).val() * $(seeSaw.split).val();
+        $('#seeSawSplitSolution').html(diviRewardSplitSolution);
+        console.log(diviRewardSplitSolution);
+        return diviRewardSplitSolution;
+    }
+    diviRewardSplit();
+
     function calculateBonus() {
         Object.keys(nodes).forEach((i) => {
             let node = nodes[i];
@@ -51,7 +64,7 @@ jQuery(()=> {
         Object.keys(nodes).forEach((i) => {
             let node = nodes[i];
             node._blockReward = node._totalBonus / total;
-            node._diviReward  = (node._blockReward / $(node.element).val()) * diviRewardSplit;
+            node._diviReward  = (node._blockReward / $(node.element).val()) * diviRewardSplitSolution;
         });
     }
 
@@ -95,6 +108,16 @@ jQuery(()=> {
                 calculate(currentValue);
                 render();
             });
+            $(seeSaw.split).on('change', () => {
+                diviRewardSplit();
+                calculate(currentValue);
+                render();
+            });
+            $(seeSaw.mintedDivi).on('change', () => {
+                diviRewardSplit();
+                calculate(currentValue);
+                render();
+            })
         });
 
         // slider
