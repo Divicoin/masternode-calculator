@@ -143,6 +143,7 @@ jQuery(()=> {
                 value: currentValue,
                 min: 1,
                 max: 700,
+                animate: true,
                 slide: function(event, ui) {
                     currentValue = ui.value;
                     $("#amount").val(`$${ui.value}`);
