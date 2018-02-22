@@ -12,34 +12,43 @@ jQuery(()=> {
         {
             element: "#diamondNodes",
             reward: "#diamondReward",
-            bonus:   120000
+            bonus:   120000,
+            costElement: '#diamondCost',
+            cost: 100000
         },
         {
             element: "#platinumNodes",
             reward: "#platinumReward",
-            bonus: 34500
+            bonus: 34500,
+            costElement: '#platinumCost',
+            cost: 30000
         },
         {
             element: "#goldNodes",
             reward: "#goldReward",
-            bonus: 11000
+            bonus: 11000,
+            costElement: '#goldCost',
+            cost: 10000
         },
         {
             element: "#silverNodes",
             reward: "#silverReward",
-            bonus: 3150
+            bonus: 3150,
+            costElement: '#silverCost',
+            cost: 3000
         },
         {
             element: "#copperNodes",
             reward: "#copperReward",
-            bonus: 1000
+            bonus: 1000,
+            costElement: '#copperCost',
+            cost: 1000
         }
     ];
 
     function diviRewardSplit() {
         diviRewardSplitSolution = $(seeSaw.mintedDivi).val() * $(seeSaw.split).val();
         $('#seeSawSplitSolution').html(diviRewardSplitSolution);
-        console.log(diviRewardSplitSolution);
         return diviRewardSplitSolution;
     }
     diviRewardSplit();
@@ -84,6 +93,7 @@ jQuery(()=> {
         nodes.forEach((node) => {
             $(node.reward + 'InDivi').html(node._diviReward.toLocaleString('en'));
             $(node.reward + 'InDollars').html('$' + node._dollarReward.toLocaleString('en'));
+            $(node.costElement + 'InDivi').html(node.cost.toLocaleString('en'));
         });
     }
 
@@ -99,6 +109,12 @@ jQuery(()=> {
         method: "GET"
     }).done(function(response) {
         currentValue = response[0].price_usd;
+
+        nodes.forEach((node) => {
+            let nodeCost = Math.floor(currentValue * node.cost);
+            $(node.costElement + 'InDollars').html(`$${nodeCost.toLocaleString('en')}`)
+        })
+        
 
         calculate(currentValue);
         render();
