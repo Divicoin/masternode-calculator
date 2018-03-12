@@ -47,7 +47,7 @@ jQuery(()=> {
     ];
 
     function diviRewardSplit() {
-        diviRewardSplitSolution = $(seeSaw.mintedDivi).val() * $(seeSaw.split).val();
+        diviRewardSplitSolution = $(seeSaw.mintedDivi).val() * ($(seeSaw.split).val() / 100);
         $('#seeSawSplitSolution').html(diviRewardSplitSolution);
         return diviRewardSplitSolution;
     }
@@ -142,7 +142,7 @@ jQuery(()=> {
                 range: "min",
                 value: currentValue,
                 min: 1,
-                max: 700,
+                max: 200,
                 animate: true,
                 slide: function(event, ui) {
                     currentValue = ui.value;
