@@ -1,3 +1,13 @@
+body {
+    font:15px/23px 'Roboto',sans-serif;
+    margin:0;
+    padding:0;
+    height:100%;
+    width:100%;
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:100%
+}
+
 .tooltip-button {
     color: #990027;
     height: 35px !important;
@@ -7,23 +17,22 @@
 }
 
 .headmast {
+    margin-top: 1rem;
     width: 100%;
     padding: 3rem;
     padding-bottom: 8rem;
-    background-color: #b90230;
 }
 
-.headmast h1 { color: #fff; }
+.headmast h1 { color: #222; font-weight: bold; font-size: 32px;}
 .headmast label { color: #222222; }
 .headmast p { margin-bottom: 0; }
 
 .priceSlider
 {
-    width: 44px;
+    width: 60px;
     border: 0;
-    color: pink;
+    color: #b90230;
     font-weight:bold;
-    background-color: #b90231;
 }
 
 #seeSawSplit
@@ -56,15 +65,14 @@ html .ui-button.ui-state-disabled:active
 {
     border: 0;
     border-radius: 5px;
-    background-color: #990027;
-    color: pink;
+    color: #000;
 }
 
 .floating
 {
     z-index: 1000;
     position: relative;
-    box-shadow: 0 2px 20px 0px #333;
+    box-shadow: 0 0 10px 0px #f1f1f1;
     top: -6rem;
     background-color: #fff;
     border-radius: 10px;
@@ -79,6 +87,12 @@ html .ui-button.ui-state-disabled:active
     font-size: 13px;
 }
 
+.tfooter p
+{
+    margin-top: 16px;
+    font-size: 16px;
+    margin-bottom: 16px;
+}
 .footer
 {
     padding: 1.5rem;
