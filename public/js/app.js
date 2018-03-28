@@ -1,5 +1,6 @@
 jQuery(()=> {
     const queryURL = "https://api.coinmarketcap.com/v1/ticker/divi/?convert=USD"
+    const nodeCountUrl = "/nodecounts";
     const seeSaw =
         {
             mintedDivi: "#mintedDivi",
@@ -108,6 +109,17 @@ jQuery(()=> {
         url: queryURL,
         method: "GET"
     }).done(function(response) {
+      $.ajax({
+        url: nodeCountUrl,
+        method: "GET"
+      }).done((res2) => {
+        console.log('response!', res2);
+        $("#diamondNodes").val(res2.diamondnodes);
+        $("#platinumNodes").val(res2.platinumnodes);
+        $("#goldNodes").val(res2.goldnodes);
+        $("#silverNodes").val(res2.silvernodes);
+        $("#copperNodes").val(res2.coppernodes);
+
         currentValue = response[0].price_usd;
 
         nodes.forEach((node) => {
@@ -154,5 +166,5 @@ jQuery(()=> {
             $("#amount").val("$" + $("#slider-range-min").slider("value"));
         });
     });
-
+  });
 })
