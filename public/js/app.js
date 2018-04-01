@@ -47,9 +47,11 @@ jQuery(()=> {
         }
     ];
 
+    const lotteryTokens = 262080 // Tokens reserved for lottery blocks
+
     function diviRewardSplit() {
-        diviRewardSplitSolution = $(seeSaw.mintedDivi).val() * ($(seeSaw.split).val() / 100);
-        $('#seeSawSplitSolution').html(diviRewardSplitSolution);
+        diviRewardSplitSolution = ($(seeSaw.mintedDivi).val() - lotteryTokens) * ($(seeSaw.split).val() / 100);
+        $('#seeSawSplitSolution').html(diviRewardSplitSolution.toLocaleString());
         return diviRewardSplitSolution;
     }
     diviRewardSplit();
@@ -127,7 +129,6 @@ jQuery(()=> {
             $(node.costElement + 'InDollars').html(`$${nodeCost.toLocaleString('en')}`)
         })
         
-
         calculate(currentValue);
         render();
 
