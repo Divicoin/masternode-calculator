@@ -1,6 +1,7 @@
-# masternode-calculator
+# Divi Masternode Rewards Calculator
 Masternode reward estimations
 
+##### How to use
 To use the calculator go [our website](https://diviproject.org/calculator "Divi Project Masternode Calculator")
 
 # FAQ
