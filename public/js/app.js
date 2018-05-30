@@ -13,41 +13,41 @@ jQuery(()=> {
         {
             element: "#diamondNodes",
             reward: "#diamondReward",
-            bonus:   120000,
+            bonus: 12000000,
             costElement: '#diamondCost',
-            cost: 100000
+            cost: 10000000
         },
         {
             element: "#platinumNodes",
             reward: "#platinumReward",
-            bonus: 34500,
+            bonus: 3450000,
             costElement: '#platinumCost',
-            cost: 30000
+            cost: 3000000
         },
         {
             element: "#goldNodes",
             reward: "#goldReward",
-            bonus: 11000,
+            bonus: 1100000,
             costElement: '#goldCost',
-            cost: 10000
+            cost: 1000000
         },
         {
             element: "#silverNodes",
             reward: "#silverReward",
-            bonus: 3150,
+            bonus: 315000,
             costElement: '#silverCost',
-            cost: 3000
+            cost: 300000
         },
         {
             element: "#copperNodes",
             reward: "#copperReward",
-            bonus: 1000,
+            bonus: 100000,
             costElement: '#copperCost',
-            cost: 1000
+            cost: 100000
         }
     ];
 
-    const lotteryTokens = 262080 // Tokens reserved for lottery blocks
+    const lotteryTokens = 26208000 // Tokens reserved for lottery blocks
 
     function diviRewardSplit() {
         diviRewardSplitSolution = ($(seeSaw.mintedDivi).val() - lotteryTokens) * ($(seeSaw.split).val() / 100);
@@ -82,7 +82,7 @@ jQuery(()=> {
 
     function calculateDollars(price) {
         Object.keys(nodes).forEach((i) => {
-            nodes[i]._dollarReward = (null == price ? 0 : Math.round(price) * nodes[i]._diviReward);
+            nodes[i]._dollarReward = (null == price ? 0 : price * nodes[i]._diviReward);
         })
     }
 
@@ -122,10 +122,10 @@ jQuery(()=> {
         $("#silverNodes").val(res2.silvernodes);
         $("#copperNodes").val(res2.coppernodes);
 
-        currentValue = response[0].price_usd;
+        currentValue = Math.round(response[0].price_usd / 100 * 100) / 100;
 
         nodes.forEach((node) => {
-            let nodeCost = Math.floor(currentValue * node.cost);
+            let nodeCost = currentValue * node.cost;
             $(node.costElement + 'InDollars').html(`$${nodeCost.toLocaleString('en')}`)
         })
         
@@ -154,8 +154,9 @@ jQuery(()=> {
             $("#slider-range-min").slider({
                 range: "min",
                 value: currentValue,
-                min: 1,
-                max: 200,
+                min: 0.01,
+                max: 2.00,
+                step: 0.01,
                 animate: true,
                 slide: function(event, ui) {
                     currentValue = ui.value;
